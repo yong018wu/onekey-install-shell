@@ -13,7 +13,7 @@ str_program_dir="/usr/local/${program_name}"
 program_init="/etc/init.d/${program_name}"
 program_config_file="frps.ini"
 ver_file="/tmp/.frp_ver.sh"
-program_version_link="https://raw.githubusercontent.com/clangcn/onekey-install-shell/master/frps/version.sh"
+program_version_link="./version.sh"
 str_install_shell=https://raw.githubusercontent.com/clangcn/onekey-install-shell/master/frps/install-frps.sh
 shell_update(){
     fun_clangcn "clear"
@@ -167,7 +167,7 @@ fun_randstr(){
 }
 fun_get_version(){
     rm -f ${ver_file}
-    if ! wget --no-check-certificate -qO ${ver_file} ${program_version_link}; then
+    if ! cp ${program_version_link} ${ver_file} ; then
         echo -e "${COLOR_RED}Failed to download version.sh${COLOR_END}"
     fi
     if [ -s ${ver_file} ]; then
@@ -584,7 +584,7 @@ fi
     echo " done"
     echo -n "download ${program_init}..."
     if [ ! -s ${program_init} ]; then
-        if ! wget --no-check-certificate -q ${FRPS_INIT} -O ${program_init}; then
+        if ! cp ${FRPS_INIT}  ${program_init}; then
             echo -e " ${COLOR_RED}failed${COLOR_END}"
             exit 1
         fi
