@@ -223,7 +223,7 @@ fun_download_file(){
         #     echo -e " ${COLOR_RED}failed${COLOR_END}"
         #     exit 1
         # fi
-        tar xzf ${program_latest_filename}
+        # tar xzf ${program_latest_filename}
         mv frp_${FRPS_VER}_linux_${ARCHS}/frps ${str_program_dir}/${program_name}
         rm -fr ${program_latest_filename} frp_${FRPS_VER}_linux_${ARCHS}
     fi
