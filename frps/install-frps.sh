@@ -844,7 +844,7 @@ checkos
 check_centosversion
 check_os_bit
 pre_install_packs
-shell_update
+#shell_update
 # Initialization
 action=$1
 [  -z $1 ]
